@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanmay Bhatt | Computer Science Student, University of Delhi</title>
+  <meta name="description" content="CV of Tanmay Bhatt, B.Sc. (Hons) Computer Science student at Shaheed Sukhdev College of Business Studies, University of Delhi.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pine: #17352d;
+      --pine-soft: #24473d;
+      --snow: #eef2f0;
+      --mist: #d5dfdb;
+      --ink: #1a2a25;
+      --slate: #51635d;
+      --marigold: #f0a81c;
+      --white: #ffffff;
+
+      --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--snow);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 3px solid var(--marigold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ---------- Header ---------- */
+    .masthead {
+      background: var(--pine);
+      color: var(--snow);
+      padding: clamp(2.5rem, 7vw, 5rem) 1.5rem clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .masthead-inner {
+      max-width: 60rem;
+      margin: 0 auto;
+    }
+
+    .name {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 12vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+    }
+
+    .name-rule {
+      display: block;
+      height: 6px;
+      width: min(12rem, 40%);
+      margin: 1.5rem 0;
+      background: var(--marigold);
+      border-radius: 3px;
+      transform-origin: left center;
+      animation: draw 700ms cubic-bezier(.2, .7, .2, 1) 150ms both;
+    }
+
+    @keyframes draw {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .tagline {
+      margin: 0;
+      max-width: 38rem;
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+      line-height: 1.5;
+      color: #d7e3de;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 2rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact a {
+      display: inline-block;
+      padding: 0.55rem 1rem;
+      border: 1.5px solid rgba(238, 242, 240, 0.4);
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background-color 150ms, color 150ms, border-color 150ms;
+    }
+
+    .contact a:hover {
+      background: var(--marigold);
+      border-color: var(--marigold);
+      color: var(--pine);
+    }
+
+    /* ---------- Sections ---------- */
+    main {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .block {
+      display: grid;
+      grid-template-columns: 12rem 1fr;
+      gap: 1.5rem 2.5rem;
+      padding: 2.75rem 0;
+      border-bottom: 1px solid var(--mist);
+    }
+
+    .block:last-of-type { border-bottom: 0; }
+
+    .block-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--pine);
+    }
+
+    /* ---------- Entries ---------- */
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 1.5rem;
+      row-gap: 0.15rem;
+      padding: 0.9rem 0;
+    }
+
+    .entry:first-child { padding-top: 0; }
+
+    .entry + .entry { border-top: 1px solid var(--mist); }
+
+    .entry-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    .entry-sub {
+      margin: 0;
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    .entry-side {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      text-align: right;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .entry-side strong {
+      display: block;
+      font-weight: 600;
+    }
+
+    .entry-side span { color: var(--slate); }
+
+    .skills {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skills li {
+      padding: 0.4rem 1rem;
+      background: var(--white);
+      border: 1.5px solid var(--mist);
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .bullets {
+      margin: 0.6rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .bullets li {
+      margin-bottom: 0.4rem;
+      padding-left: 0.2rem;
+    }
+
+    .bullets li::marker { color: var(--marigold); }
+
+    /* ---------- Awards ---------- */
+    .group-title {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--slate);
+    }
+
+    .group + .group { margin-top: 2rem; }
+
+    .awards {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .award {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr auto;
+      align-items: baseline;
+      gap: 0 1.25rem;
+      padding: 0.8rem 0;
+      border-top: 1px solid var(--mist);
+    }
+
+    .rank {
+      justify-self: start;
+      padding: 0.15rem 0.7rem;
+      background: var(--mist);
+      color: var(--pine);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .rank.gold {
+      background: var(--marigold);
+      color: var(--pine);
+    }
+
+    .award-title {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .award-org {
+      margin: 0;
+      color: var(--slate);
+      font-size: 0.93rem;
+    }
+
+    .award-year {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--pine);
+    }
+
+    /* ---------- Interests ---------- */
+    .interests {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 0.9rem 1.5rem;
+    }
+
+    .interests dt {
+      font-weight: 600;
+      color: var(--pine);
+    }
+
+    .interests dd { margin: 0; }
+
+    footer {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+      color: var(--slate);
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Small screens ---------- */
+    @media (max-width: 720px) {
+      .block {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+        padding: 2.25rem 0;
+      }
+
+      .award {
+        grid-template-columns: 1fr auto;
+        row-gap: 0.35rem;
+      }
+
+      .rank { grid-column: 1 / -1; }
+      .award-year { grid-row: 2; grid-column: 2; }
+
+      .interests { grid-template-columns: 1fr; gap: 0.15rem; }
+      .interests dd { margin-bottom: 0.9rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .name-rule { animation: none; }
+      .contact a { transition: none; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .masthead { background: #fff; color: #000; padding: 0 0 1rem; }
+      .tagline { color: #333; }
+      .contact a { border-color: #999; }
+      .block { break-inside: avoid; padding: 1.25rem 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <h1 class="name">Tanmay Bhatt</h1>
+      <span class="name-rule" aria-hidden="true"></span>
+      <p class="tagline">
+        Computer science student at the University of Delhi. I run a festival stall, coordinate events, and compete in case, pitch and acting competitions.
+      </p>
+      <ul class="contact">
+        <li><a href="mailto:tanmay.26891@sscbs.du.ac.in">tanmay.26891@sscbs.du.ac.in</a></li>
+        <li><a href="tel:+917983789254">+91 79 837 89 254</a></li>
+        <!-- Replace # with your LinkedIn profile URL -->
+        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="block" aria-labelledby="education">
+      <h2 class="block-title" id="education">Education</h2>
+      <div>
+        <article class="entry">
+          <h3 class="entry-title">B.Sc. (Hons) Computer Science</h3>
+          <p class="entry-sub">Shaheed Sukhdev College of Business Studies, University of Delhi</p>
+          <div class="entry-side"><strong>Pursuing</strong></div>
+        </article>
+        <article class="entry">
+          <h3 class="entry-title">AISSCE (Science)</h3>
+          <p class="entry-sub">Atal Utkrisht GIC Saura Saroli, Dehradun</p>
+          <div class="entry-side"><strong>2025</strong><span>76.4% (382/500)</span></div>
+        </article>
+        <article class="entry">
+          <h3 class="entry-title">AISSE</h3>
+          <p class="entry-sub">Shri Ram Krishna Academy, Dehradun</p>
+          <div class="entry-side"><strong>2023</strong><span>78.6%</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="skills">
+      <h2 class="block-title" id="skills">Technical skills</h2>
+      <ul class="skills">
+        <li>Python</li>
+        <li>Google Sheets</li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="projects">
+      <h2 class="block-title" id="projects">Live projects</h2>
+      <article>
+        <div class="entry" style="padding:0">
+          <h3 class="entry-title">Shagun Garments: festive stall operations</h3>
+          <div class="entry-side" style="grid-row:1"><strong>2019 to present</strong></div>
+        </div>
+        <ul class="bullets">
+          <li><strong>Procured and transported merchandise</strong> for major festivals (Diwali, Holi, Rakshabandhan, Janmashtami, Navratri) from suppliers.</li>
+          <li><strong>Priced and arranged inventory</strong> for stall setup each festival season.</li>
+          <li><strong>Managed stall sales and customer engagement</strong> for 3 to 4 days per festival.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="block" aria-labelledby="awards">
+      <h2 class="block-title" id="awards">Awards and achievements</h2>
+      <div>
+        <div class="group">
+          <h3 class="group-title">Team</h3>
+          <ul class="awards">
+            <li class="award">
+              <span class="rank">2nd runner-up</span>
+              <div>
+                <p class="award-title">Precipice: The Marketing Case Competition</p>
+                <p class="award-org">IIM Indore</p>
+              </div>
+              <span class="award-year">2026</span>
+            </li>
+            <li class="award">
+              <span class="rank">3rd position</span>
+              <div>
+                <p class="award-title">Ulta Pitch Sidha Roast (Evoke 7.0)</p>
+                <p class="award-org">Jesus and Mary College, University of Delhi</p>
+              </div>
+              <span class="award-year">2026</span>
+            </li>
+            <li class="award">
+              <span class="rank">2nd position</span>
+              <div>
+                <p class="award-title">Escape from Prophecy (Olythea 2025)</p>
+                <p class="award-org">DELTECH, DTU-USME</p>
+              </div>
+              <span class="award-year">2025</span>
+            </li>
+            <li class="award">
+              <span class="rank">2nd position</span>
+              <div>
+                <p class="award-title">Kahani Mein Twist (Impromptu Acting)</p>
+                <p class="award-org">TEDx Sparkles, Maitreyi College</p>
+              </div>
+              <span class="award-year">2025</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <h3 class="group-title">Personal</h3>
+          <ul class="awards">
+            <li class="award">
+              <span class="rank">3rd position</span>
+              <div>
+                <p class="award-title">Meme Writing (Standards Act)</p>
+                <p class="award-org">Standards Club, Atal Utkrisht GIC Saura Saroli</p>
+              </div>
+              <span class="award-year">2024</span>
+            </li>
+            <li class="award">
+              <span class="rank">2nd position</span>
+              <div>
+                <p class="award-title">Slogan Writing and Poster Making</p>
+                <p class="award-org">Standards Club, Atal Utkrisht GIC Saura Saroli</p>
+              </div>
+              <span class="award-year">2024</span>
+            </li>
+            <li class="award">
+              <span class="rank">2nd position</span>
+              <div>
+                <p class="award-title">Standards Quiz</p>
+                <p class="award-org">Standards Club, Atal Utkrisht GIC Saura Saroli</p>
+              </div>
+              <span class="award-year">2023</span>
+            </li>
+            <li class="award">
+              <span class="rank gold">1st position</span>
+              <div>
+                <p class="award-title">District-Level General Knowledge Quiz Competition</p>
+                <p class="award-org">Government Inter College, Nalapani, Dehradun</p>
+              </div>
+              <span class="award-year">2023</span>
+            </li>
+            <li class="award">
+              <span class="rank">Recognition</span>
+              <div>
+                <p class="award-title">Most Versatile Student (annual recognition)</p>
+                <p class="award-org">Shri Ram Krishna Academy</p>
+              </div>
+              <span class="award-year">2022</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="positions">
+      <h2 class="block-title" id="positions">Positions of responsibility</h2>
+      <article>
+        <div class="entry" style="padding:0">
+          <div>
+            <h3 class="entry-title">Student Coordinator, Event Management</h3>
+            <p class="entry-sub">Atal Utkrisht GIC Saura Saroli</p>
+          </div>
+          <div class="entry-side" style="grid-row:1"><strong>2024 to 2025</strong></div>
+        </div>
+        <ul class="bullets">
+          <li><strong>Led budgeting and fund collection</strong> for school-wide events including Teacher's Day, Annual Day, and Farewell.</li>
+          <li><strong>Coordinated logistics and vendor management</strong> (decoration, seating, catering, and entertainment) across annual celebrations.</li>
+          <li><strong>Managed faculty hospitality and gifting</strong>, ensuring seamless event execution.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="block" aria-labelledby="interests">
+      <h2 class="block-title" id="interests">Interests and activities</h2>
+      <dl class="interests">
+        <dt>Environmental sustainability</dt>
+        <dd>Advocacy against resource exploitation in Uttarakhand</dd>
+        <dt>Performing arts</dt>
+        <dd>Singing and dance</dd>
+        <dt>Public relations</dt>
+        <dd>Networking and relationship-building</dd>
+        <dt>Community teaching</dt>
+        <dd>Guiding underprivileged students with limited access to quality education</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <p>Tanmay Bhatt, Delhi</p>
+  </footer>
+</body>
+</html>
